@@ -1,5 +1,5 @@
-/home/farmijo/NetBeansProjects/Demo04WithMysqlAsDB/src/main/java/test/TestConnectionClass.java
-/home/farmijo/NetBeansProjects/Demo04WithMysqlAsDB/src/main/java/config/Conexion.java
-/home/farmijo/NetBeansProjects/Demo04WithMysqlAsDB/src/main/java/modelo/PersonaDao.java
-/home/farmijo/NetBeansProjects/Demo04WithMysqlAsDB/src/main/java/controlador/Controlador.java
-/home/farmijo/NetBeansProjects/Demo04WithMysqlAsDB/src/main/java/modelo/Persona.java
+/Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/Persona.java
+/Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/controlador/Controlador.java
+/Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/test/TestConnectionClass.java
+/Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/config/Conexion.java
+/Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/PersonaDao.java
