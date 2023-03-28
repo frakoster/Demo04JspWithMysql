@@ -1,0 +1,5 @@
+test/TestConnectionClass.class
+modelo/PersonaDao.class
+controlador/Controlador.class
+config/Conexion.class
+modelo/Persona.class
