@@ -8,14 +8,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>Aplicacion web</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="Demo04WithMysqlAsDB/css/style.css">
+        <link rel="stylesheet" href="/Demo04WithMysqlAsDB/css/style.css">
     </head>
+<div>
     <body>
-        <h1>Hello World!</h1>
+    
+
+
+
+
+        <h1>Aplicacion web</h1>
         <form action="Controlador" method="post">
             <input type="submit" value="listar">
         </form>
     </body>
+
 </html>

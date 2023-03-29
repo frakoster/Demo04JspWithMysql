@@ -1,0 +1,82 @@
+body {
+    background-color: lightblue;
+    margin: 0;
+  }
+
+h1 {
+    color: white;
+    text-align: center;
+}
+  
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+table{
+   
+    font-family: verdana;
+    text-align:center;
+    width: 75%
+    /* border: 1px solid; */
+    
+}
+
+tr:hover {background-color: coral;} 
+/*
+
+
+
+/*tr:nth-child(even) {background-color: #f2f2f2;}*/
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
+
+th {
+    background-color: black;
+    color: white;
+  }
+
+  .center {
+    padding: 70px 0;
+    margin: auto;
+    width: 75%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  }
+
+  .header {
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Style the top navigation bar */
+.topnav {
+    margin: auto;
+    width: 75%;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    
+    margin-top: 20px;
+  }  
