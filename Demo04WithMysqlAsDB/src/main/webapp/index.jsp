@@ -10,19 +10,15 @@
     <head>
         <title>Aplicacion web</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="/Demo04WithMysqlAsDB/css/style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
-<div>
-    <body>
-    
+    <div>
+        <body>
+            <jsp:include page="header.jsp" />  
+            <jsp:include page="menu_nav.jsp"/>  
+            <jsp:include page="body.jsp"/> 
+            <jsp:include page="footer.jsp"/> 
 
-
-
-
-        <h1>Aplicacion web</h1>
-        <form action="Controlador" method="post">
-            <input type="submit" value="listar">
-        </form>
-    </body>
+        </body>
 
 </html>

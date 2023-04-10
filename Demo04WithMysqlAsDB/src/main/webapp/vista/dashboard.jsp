@@ -9,13 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="style.css">
+        <title>dashboard</title>
     </head>
+    <jsp:include page="/header.jsp" />  
+    <jsp:include page="/menu_nav.jsp"/>     
+    <div class="body">
     <body>
-        <div class="topnav">
-            <a href="dashboard.jsp">Home</a>
-            <a href="#">Link</a>
-            <a href="index.jsp">Volver</a>
-        </div>
+        <h2>Dashboard</h2>
     </body>
+    </div>
+<jsp:include page="/footer.jsp"/> 
 </html>

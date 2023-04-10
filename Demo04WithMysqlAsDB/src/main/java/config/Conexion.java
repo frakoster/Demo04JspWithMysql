@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Conexion {
-    private static final String JDBC_URL = "jdbc:mysql://localhost/test?autoReconnect=true&useSSL=false&";
+    private static final String JDBC_URL = "jdbc:mysql://localhost/demo04?autoReconnect=true&useSSL=false&";
     private static final String JDBC_USER = "farmijo";
     private static final String JDBC_PASSWD = "fa1400";
 

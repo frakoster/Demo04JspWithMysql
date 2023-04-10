@@ -6,10 +6,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Persona;
 import modelo.PersonaDao;
+import modelo.Usuario;
+import modelo.UsuarioDao;
 
 /**
  *
  * @author farmijo
  */
 public class Controlador extends HttpServlet {
+
+    RequestDispatcher rd = null;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,7 +42,7 @@ public class Controlador extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Controlador</title>");            
+            out.println("<title>Servlet Controlador</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Controlador at " + request.getContextPath() + "</h1>");
@@ -64,12 +65,11 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         //PersonaDao dao = new PersonaDao();
-       // List<Persona> listadoPersonas = dao.getAllPersona();
-       // for (Persona p : listadoPersonas) {
-           // System.out.println("test.TestConnectionClass.main()=" + p.getApellido());
-       // }
-        
-        
+        // List<Persona> listadoPersonas = dao.getAllPersona();
+        // for (Persona p : listadoPersonas) {
+
+        // }
+
     }
 
     /**
@@ -83,20 +83,21 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                RequestDispatcher rd = null;
-                PersonaDao dao = new PersonaDao();
-                List<Persona> personas = dao.getAllPersona();
-                for (Persona persona : dao.getAllPersona()){
-                System.out.println(persona.toString());
-                 }
-                request.setAttribute("personas", personas);
-                rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
-                rd.forward(request, response);
-               
-      
-        
-        
-        
+
+        System.out.println("entrando al metodo get");
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
+        System.out.println(userName + "/" + password);
+        Usuario user = new Usuario(userName, password);
+        UsuarioDao udao = new UsuarioDao();
+        boolean isUser = udao.usuarioExiste(user);
+        System.out.println("isUser():" + isUser);
+        if (isUser){
+        rd = request.getRequestDispatcher("vista/dashboard.jsp");
+        rd.forward(request, response);
+        }else {
+            response.sendRedirect("logIn.jsp");
+        }
         
     }
 
