@@ -1,5 +1,7 @@
-modelo/PersonaDao.class
-test/TestConnectionClass.class
 controlador/Controlador.class
 config/Conexion.class
 modelo/Persona.class
+modelo/UsuarioDao.class
+test/TestConnectionClass.class
+modelo/PersonaDao.class
+modelo/Usuario.class

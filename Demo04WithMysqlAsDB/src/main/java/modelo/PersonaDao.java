@@ -30,11 +30,11 @@ public class PersonaDao {
             ps = conn.prepareStatement("SELECT * FROM persona");
             rs = ps.executeQuery();
             while (rs.next()) {
-                int idPersona = rs.getInt("id_persona");
+                int idPersona = rs.getInt("id");
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
                 String email = rs.getString("email");
-                String numtel = rs.getString("telefono");
+                String numtel = rs.getString("num_tel");
                 Persona p = new Persona(idPersona, nombre, apellido, email, numtel);
                 listado.add(p);
             }

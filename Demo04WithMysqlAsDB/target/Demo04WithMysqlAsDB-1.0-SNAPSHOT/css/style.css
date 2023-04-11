@@ -15,6 +15,15 @@
     
 }
 
+.utable{
+    margin-left: 15px;   
+    border-style: groove;
+
+
+}
+
+
+
 .footer{
     margin-top: 15px;
     border-radius: 5px; 
@@ -25,7 +34,7 @@
 .row{
     width: 800px;
     height: 500px;
-    background-color: aqua;
+    
     margin-top:5px;
 }
 

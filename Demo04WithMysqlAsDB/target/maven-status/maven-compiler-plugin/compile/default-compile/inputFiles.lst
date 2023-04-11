@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/Persona.java
 /Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/controlador/Controlador.java
 /Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/test/TestConnectionClass.java
@@ -6,10 +5,3 @@
 /Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/config/Conexion.java
 /Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/Usuario.java
 /Users/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/PersonaDao.java
-=======
-/home/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/PersonaDao.java
-/home/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/test/TestConnectionClass.java
-/home/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/modelo/Persona.java
-/home/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/controlador/Controlador.java
-/home/farmijo/Documents/Demo04JspWithMysql/Demo04WithMysqlAsDB/src/main/java/config/Conexion.java
->>>>>>> 019c44ee05cf312add2ecf7f583db8018b3dc5ae

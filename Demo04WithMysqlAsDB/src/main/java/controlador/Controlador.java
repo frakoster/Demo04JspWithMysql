@@ -64,11 +64,19 @@ public class Controlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        //PersonaDao dao = new PersonaDao();
-        // List<Persona> listadoPersonas = dao.getAllPersona();
-        // for (Persona p : listadoPersonas) {
-
-        // }
+        String accion = request.getParameter("accion");
+        System.out.println("accion:"+accion);
+        
+        switch (accion){
+            case "listarUsuarios":
+                PersonaDao dao = new PersonaDao();
+                List<Persona> listadoPersonas = dao.getAllPersona();
+                request.setAttribute("listadoPersonas", listadoPersonas);
+                rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
+                rd.forward(request, response);
+            break;
+        }
+     
 
     }
 
