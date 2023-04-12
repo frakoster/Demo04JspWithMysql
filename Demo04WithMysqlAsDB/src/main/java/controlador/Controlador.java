@@ -65,18 +65,29 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String accion = request.getParameter("accion");
-        System.out.println("accion:"+accion);
-        
-        switch (accion){
+        System.out.println("accion:" + accion);
+
+        switch (accion) {
             case "listarUsuarios":
                 PersonaDao dao = new PersonaDao();
                 List<Persona> listadoPersonas = dao.getAllPersona();
                 request.setAttribute("listadoPersonas", listadoPersonas);
                 rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
                 rd.forward(request, response);
-            break;
+                break;
+            case "eliminarUsuario":
+                int idUsuario = Integer.parseInt(request.getParameter("idUser"));
+                System.out.println("idUser="+idUsuario + ",accion="+ accion);
+                PersonaDao pdao = new PersonaDao();
+                int rowsUpdated=pdao.eliminaPersona(idUsuario);
+                System.out.println("rowsUpdated="+rowsUpdated);
+                
+                listadoPersonas = pdao.getAllPersona();
+                request.setAttribute("listadoPersonas", listadoPersonas);
+                rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
+                rd.forward(request, response);
+                     
         }
-     
 
     }
 
@@ -91,22 +102,52 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("entrando al metodo get");
-        String userName = request.getParameter("username");
-        String password = request.getParameter("password");
-        System.out.println(userName + "/" + password);
-        Usuario user = new Usuario(userName, password);
-        UsuarioDao udao = new UsuarioDao();
-        boolean isUser = udao.usuarioExiste(user);
-        System.out.println("isUser():" + isUser);
-        if (isUser){
-        rd = request.getRequestDispatcher("vista/dashboard.jsp");
-        rd.forward(request, response);
-        }else {
-            response.sendRedirect("logIn.jsp");
-        }
+        String accion = request.getParameter("accion");
         
+        switch (accion) {
+
+            case "logIn":
+                System.out.println("entrando al metodo post");
+                String userName = request.getParameter("username");
+                String password = request.getParameter("password");
+                System.out.println(userName + "/" + password);
+                Usuario user = new Usuario(userName, password);
+                UsuarioDao udao = new UsuarioDao();
+                boolean isUser = udao.usuarioExiste(user);
+                System.out.println("isUser():" + isUser);
+                if (isUser) {
+                    rd = request.getRequestDispatcher("vista/dashboard.jsp");
+                    rd.forward(request, response);
+                } else {
+                    response.sendRedirect("logIn.jsp");
+                }
+                break;
+            case "crearUsuario":
+                System.out.println("accion=" + accion);
+                String nombre = request.getParameter("nombre");
+                String apellido = request.getParameter("apellido");
+                String email = request.getParameter("email");
+                String telefono = request.getParameter("telefono");
+                String dni = request.getParameter("dni");
+                
+                Persona p = new Persona(nombre, apellido, email, telefono);
+                System.out.println("Persona="+ p.toString());
+                
+                PersonaDao pdao = new PersonaDao();
+               
+                int rowsUpdated =  pdao.crearNuevaPersona(p);
+                System.out.println("rowsUpdated="+rowsUpdated);
+                
+                //actualizando todo 
+                 PersonaDao dao = new PersonaDao();
+                List<Persona> listadoPersonas = dao.getAllPersona();
+                request.setAttribute("listadoPersonas", listadoPersonas);
+                rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
+                rd.forward(request, response);
+                
+                break;
+        }
+
     }
 
     /**

@@ -18,7 +18,12 @@ public class TestConnectionClass {
 
         TestConnectionClass t = new TestConnectionClass();
 //        t.showAllContent();
-
+        
+        PersonaDao pdao = new PersonaDao();
+         
+        int updatedRows = 0;
+        updatedRows = pdao.crearNuevaPersona(new Persona(28,"Luis", "Toloza", "ltoloza@mail.com", "56985564478"));
+        System.out.println("updatedRows=" + updatedRows );
 
     }
 

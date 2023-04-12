@@ -18,6 +18,13 @@ public class Persona {
     public Persona() {
     }
 
+    public Persona(String nombre, String apellido, String email, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.telefono = telefono;
+    }
+
     public Persona(int id, String nombre, String apellido, String email, String telefono) {
         this.id = id;
         this.nombre = nombre;
