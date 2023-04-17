@@ -1,0 +1,108 @@
+label {
+    display: inline-block;
+    width: 100px;
+
+
+}
+
+input {
+    display: inline-block;
+    width: 150px;
+}
+
+div {
+    width: auto;
+    height: auto;
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.row1 {
+    
+    border-style: groove;
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+
+
+}
+
+.row2 {
+    
+    border-style: groove;
+    width: 800px;
+    height: 400px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+
+
+}
+
+.detalle_usuario {
+    
+    border-style: groove;
+    width: 280px;
+    height: 300px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.main {
+    border-style: groove;
+    border-radius: 5px;
+    width: 1400px;
+    height: 500px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.div_table{
+    margin-top: 20px;
+    margin-left: 20px;
+    overflow: auto;
+    height: 300px;
+    width: 780px;
+}
+
+.botonera {
+   
+    border-style: groove;
+    width: 150px;
+    height: 400px;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+
+}
+
+
+.menu_nav{
+    margin-top: 10px;
+    border-radius: 5px;
+    border-style: groove;
+    text-align: center;
+
+}
+
+
+
+

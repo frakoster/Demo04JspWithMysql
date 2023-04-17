@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package controlador;
 
 import java.io.IOException;
@@ -86,6 +83,34 @@ public class Controlador extends HttpServlet {
                 request.setAttribute("listadoPersonas", listadoPersonas);
                 rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
                 rd.forward(request, response);
+                break;
+            case "editarUsuario":
+                idUsuario = Integer.parseInt(request.getParameter("idUser"));
+                System.out.println("idUser="+idUsuario + ",accion="+ accion);
+                pdao = new PersonaDao();
+                Persona per = pdao.personaPorId(idUsuario);
+               // System.out.println("Persona" + per.toString());
+                
+                int idUser = per.getId();
+                String nombre = per.getNombre();
+                String apellido = per.getApellido();
+                String email = per.getEmail();
+                String telefono = per.getTelefono();
+                
+                request.setAttribute("id", idUser);
+                request.setAttribute("nombre", nombre);
+                request.setAttribute("apellido", apellido);
+                request.setAttribute("email", email);
+                request.setAttribute("telefono", telefono);
+                
+                listadoPersonas = pdao.getAllPersona();
+                request.setAttribute("listadoPersonas", listadoPersonas);
+                rd = request.getRequestDispatcher("vista/editarUsuarios.jsp");
+                rd.forward(request, response);
+                break;
+            case "logout":
+                response.sendRedirect("index.jsp");
+                break;
                      
         }
 
@@ -130,14 +155,11 @@ public class Controlador extends HttpServlet {
                 String telefono = request.getParameter("telefono");
                 String dni = request.getParameter("dni");
                 
-                Persona p = new Persona(nombre, apellido, email, telefono);
+                Persona p = new Persona(nombre, apellido, email, telefono,dni);
                 System.out.println("Persona="+ p.toString());
-                
                 PersonaDao pdao = new PersonaDao();
-               
                 int rowsUpdated =  pdao.crearNuevaPersona(p);
                 System.out.println("rowsUpdated="+rowsUpdated);
-                
                 //actualizando todo 
                  PersonaDao dao = new PersonaDao();
                 List<Persona> listadoPersonas = dao.getAllPersona();
@@ -146,10 +168,36 @@ public class Controlador extends HttpServlet {
                 rd.forward(request, response);
                 
                 break;
+                
+            case "actualizarUsuario":
+                 int idUser = Integer.parseInt(request.getParameter("idUsuario"));
+                 System.out.println("idUser="+idUser);
+                 nombre = request.getParameter("nombre");
+                 apellido = request.getParameter("apellido");
+                 email = request.getParameter("email");
+                 telefono = request.getParameter("telefono");
+                 dni = request.getParameter("dni");
+                 p = new Persona(idUser, nombre, apellido, email, telefono,dni);
+                 System.out.println(p.toString());
+                 pdao = new PersonaDao();
+                 int updatedRows = pdao.actualizaPersona(p);
+                 
+                    //actualizando todo 
+                dao = new PersonaDao();
+                listadoPersonas = dao.getAllPersona();
+                request.setAttribute("listadoPersonas", listadoPersonas);
+                rd = request.getRequestDispatcher("vista/listadoUsuarios.jsp");
+                rd.forward(request, response);
+                break;
+                 
         }
 
+    
     }
+    
 
+    
+    
     /**
      * Returns a short description of the servlet.
      *
@@ -159,5 +207,6 @@ public class Controlador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }

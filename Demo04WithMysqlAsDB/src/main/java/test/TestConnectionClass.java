@@ -22,7 +22,7 @@ public class TestConnectionClass {
         PersonaDao pdao = new PersonaDao();
          
         int updatedRows = 0;
-        updatedRows = pdao.crearNuevaPersona(new Persona(28,"Luis", "Toloza", "ltoloza@mail.com", "56985564478"));
+        updatedRows = pdao.crearNuevaPersona(new Persona("Luis", "Toloza", "ltoloza@mail.com", "56985564478","157901236"));
         System.out.println("updatedRows=" + updatedRows );
 
     }

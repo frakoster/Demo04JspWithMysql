@@ -12,16 +12,12 @@
         <link rel="stylesheet" href="style.css">
         <title>dashboard</title>
     </head>
-    <jsp:include page="/header.jsp" />  
+    <jsp:include page="header_int.jsp" />  
+     <jsp:include page="menu_nav_int.jsp" />  
      <body>
-        <div class="menu_nav">
-    <ul>
-        <li><a href="Controlador?accion=listarUsuarios">Usuarios</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="logIn.jsp">LogOut</a></li>
-      </ul>
-    </div>
+ 
+           
+    
     </body>    
     <div class="body">
     <body>

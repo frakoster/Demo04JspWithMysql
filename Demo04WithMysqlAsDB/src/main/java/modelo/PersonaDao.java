@@ -24,7 +24,7 @@ public class PersonaDao {
 
         conn = Conexion.getConnection();
         try {
-            ps = conn.prepareStatement("SELECT * FROM persona");
+            ps = conn.prepareStatement("SELECT * FROM persona ORDER BY apellido");
             rs = ps.executeQuery();
             while (rs.next()) {
                 int idPersona = rs.getInt("id");
@@ -32,7 +32,10 @@ public class PersonaDao {
                 String apellido = rs.getString("apellido");
                 String email = rs.getString("email");
                 String numtel = rs.getString("num_tel");
-                Persona p = new Persona(idPersona, nombre, apellido, email, numtel);
+                String dni = rs.getString("dni");
+                
+                Persona p = new Persona(idPersona, nombre, apellido, email, numtel,dni);
+                
                 listado.add(p);
             }
         } catch (SQLException ex) {
@@ -50,16 +53,17 @@ public class PersonaDao {
         
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO persona (id,nombre,apellido,email,num_tel) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO persona (nombre,apellido,email,num_tel,dni) VALUES (?,?,?,?,?)";
         int rowsUpdated=0;
         try {
             conn= Conexion.getConnection();
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, persona.getId());
-            ps.setString(2, persona.getNombre());
-            ps.setString(3, persona.getApellido());
-            ps.setString(4, persona.getEmail());
-            ps.setString(5, persona.getTelefono());
+            //ps.setInt(1, persona.getId());
+            ps.setString(1, persona.getNombre());
+            ps.setString(2, persona.getApellido());
+            ps.setString(3, persona.getEmail());
+            ps.setString(4, persona.getTelefono());
+            ps.setString(5, persona.getDni());
             rowsUpdated = ps.executeUpdate();
         } catch (SQLException ex) {
             
@@ -85,7 +89,50 @@ public class PersonaDao {
         return rowsUpdated;
     }
 
-    public int actualizaPersona() {
-        return 1;
+    public int actualizaPersona(Persona p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String sql = "UPDATE persona set nombre=?,apellido=?,email=?,num_tel=?,dni=? WHERE id = ?";
+        
+        int rowsUpdated=0;
+        try {
+            conn= Conexion.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getApellido());
+            ps.setString(3, p.getEmail());
+            ps.setString(4, p.getTelefono());
+            ps.setString(5, p.getDni());
+            ps.setInt(6, p.getId());
+            rowsUpdated = ps.executeUpdate();
+            
+         
+        } catch (SQLException ex) {
+            
+        }
+        return rowsUpdated;
+    }
+    
+    public Persona personaPorId(int idPersona){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String sql = "SELECT * FROM persona WHERE id = ?";
+        Persona p = null;
+        int rowsUpdated=0;
+        try {
+            conn= Conexion.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, idPersona);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+             p = new Persona(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellido"),
+                    rs.getString("email"),rs.getString("num_tel"),rs.getString("dni"));
+            
+            }
+         
+        } catch (SQLException ex) {
+            
+        }
+        return p;
     }
 }

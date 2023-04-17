@@ -14,23 +14,26 @@ public class Persona {
     String apellido;
     String email;
     String telefono;
+    String dni;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String email, String telefono) {
+    public Persona(String nombre, String apellido, String email, String telefono,String dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
+        this.dni = dni;
     }
 
-    public Persona(int id, String nombre, String apellido, String email, String telefono) {
+    public Persona(int id, String nombre, String apellido, String email, String telefono,String dni) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
+        this.dni = dni;
     }
 
     public int getId() {
@@ -73,10 +76,20 @@ public class Persona {
         this.telefono = telefono;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + ", dni=" + dni + '}';
     }
+    
+   
     
     
  

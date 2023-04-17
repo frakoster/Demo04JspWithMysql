@@ -15,9 +15,9 @@
         <div class="menu_nav">
     <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="logIn.jsp">LogIn</a></li>
+        <li><a href="#news">Nosotros</a></li>
+        <li><a href="#contact">Nuestro trabajo</a></li>
+        <li></li>
       </ul>
     </div>
     </body>

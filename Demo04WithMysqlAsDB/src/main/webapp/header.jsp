@@ -17,6 +17,7 @@
             <header>
                 <h2>HTML5 & CSS</h2>
                 <a href="index.jsp">Home</a>    
+                <a href="logIn.jsp">LogIn</a>
             </header>
         </div>
     </body>
