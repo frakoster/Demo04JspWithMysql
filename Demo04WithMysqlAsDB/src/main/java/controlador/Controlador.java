@@ -96,12 +96,14 @@ public class Controlador extends HttpServlet {
                 String apellido = per.getApellido();
                 String email = per.getEmail();
                 String telefono = per.getTelefono();
+                String dni = per.getDni();
                 
                 request.setAttribute("id", idUser);
                 request.setAttribute("nombre", nombre);
                 request.setAttribute("apellido", apellido);
                 request.setAttribute("email", email);
                 request.setAttribute("telefono", telefono);
+                request.setAttribute("dni", dni);
                 
                 listadoPersonas = pdao.getAllPersona();
                 request.setAttribute("listadoPersonas", listadoPersonas);
@@ -172,6 +174,7 @@ public class Controlador extends HttpServlet {
             case "actualizarUsuario":
                  int idUser = Integer.parseInt(request.getParameter("idUsuario"));
                  System.out.println("idUser="+idUser);
+                 
                  nombre = request.getParameter("nombre");
                  apellido = request.getParameter("apellido");
                  email = request.getParameter("email");

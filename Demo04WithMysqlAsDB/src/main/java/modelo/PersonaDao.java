@@ -24,14 +24,14 @@ public class PersonaDao {
 
         conn = Conexion.getConnection();
         try {
-            ps = conn.prepareStatement("SELECT * FROM persona ORDER BY apellido");
+            ps = conn.prepareStatement("SELECT * FROM usuario ORDER BY apellido");
             rs = ps.executeQuery();
             while (rs.next()) {
-                int idPersona = rs.getInt("id");
+                int idPersona = rs.getInt("id_usuario");
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
                 String email = rs.getString("email");
-                String numtel = rs.getString("num_tel");
+                String numtel = rs.getString("telefono");
                 String dni = rs.getString("dni");
                 
                 Persona p = new Persona(idPersona, nombre, apellido, email, numtel,dni);
@@ -53,7 +53,7 @@ public class PersonaDao {
         
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO persona (nombre,apellido,email,num_tel,dni) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO usuario (nombre,apellido,email,telefono,dni) VALUES (?,?,?,?,?)";
         int rowsUpdated=0;
         try {
             conn= Conexion.getConnection();
@@ -74,7 +74,7 @@ public class PersonaDao {
     public int eliminaPersona(int IdPersona)  {
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "DELETE FROM persona WHERE id = ?";
+        String sql = "DELETE FROM usuario WHERE id_usuario = ?";
         
         int rowsUpdated=0;
         try {
@@ -92,7 +92,7 @@ public class PersonaDao {
     public int actualizaPersona(Persona p) {
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "UPDATE persona set nombre=?,apellido=?,email=?,num_tel=?,dni=? WHERE id = ?";
+        String sql = "UPDATE usuario set nombre=?,apellido=?,email=?,telefono=?,dni=? WHERE id_usuario = ?";
         
         int rowsUpdated=0;
         try {
@@ -116,7 +116,7 @@ public class PersonaDao {
     public Persona personaPorId(int idPersona){
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "SELECT * FROM persona WHERE id = ?";
+        String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
         Persona p = null;
         int rowsUpdated=0;
         try {
@@ -125,8 +125,8 @@ public class PersonaDao {
             ps.setInt(1, idPersona);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-             p = new Persona(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellido"),
-                    rs.getString("email"),rs.getString("num_tel"),rs.getString("dni"));
+             p = new Persona(rs.getInt("id_usuario"),rs.getString("nombre"),rs.getString("apellido"),
+                    rs.getString("email"),rs.getString("telefono"),rs.getString("dni"));
             
             }
          

@@ -29,7 +29,7 @@ public class UsuarioDao {
         boolean isUser = false;
         conn = Conexion.getConnection();
         try {
-            ps = conn.prepareStatement("SELECT * FROM usuario WHERE userName=? and password=?");
+            ps = conn.prepareStatement("SELECT * FROM usuario WHERE username=? and password=?");
             ps.setString(1, usuario.getUserName());
             ps.setString(2, usuario.getPassword());
             rs = ps.executeQuery();

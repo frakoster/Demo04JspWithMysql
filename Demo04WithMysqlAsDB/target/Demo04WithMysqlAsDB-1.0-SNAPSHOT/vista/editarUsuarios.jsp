@@ -50,7 +50,7 @@
                         </div>
                         <div >
                             <label>RUT</label>
-                            <input type="text" name="dni">
+                            <input type="text" name="dni" value="${dni}">
                         </div>
                         <div>
 
