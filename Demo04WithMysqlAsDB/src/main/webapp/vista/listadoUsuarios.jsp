@@ -10,75 +10,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/vista_style.css">
+       
         <title>Aplicacion web</title>
     </head>
     <header>
-        <jsp:include page="header_int.jsp"/>  
+
     </header>
-
-        <jsp:include page="menu_nav_int.jsp"/> 
- 
-
-
     <body>
-        <div class="main">
-
-            <div class="botonera">
-                <jsp:include page="menu_nav_user.jsp"/> 
-            </div>
-
-            <div class="row1">
-                <h2>Datos de usuario</h2>
-                <div class="detalle_usuario">
-                    <form action="Controlador?accion=crearUsuario" method="post">
-
-                        <div style="margin-top: 50px;">
-                            <label>NOMBRE</label>
-                            <input type="text" name="nombre">
-                        </div>
-                        <div>
-                            <label>APELLIDO</label>
-                            <input type="text" name="apellido">
-                        </div>
-                        <div>
-                            <label>EMAIL</label>
-                            <input type="text" name="email">
-                        </div>
-                        <div>
-                            <label>TELEFONO</label>
-                            <input type="text" name="telefono">
-                        </div>
-                        <div >
-                            <label>RUT</label>
-                            <input type="text" name="dni">
-                        </div>
-                        <div>
-
-                            <div style="float: left; width: 80px;margin-left: 100px;">
-                                <input  type="submit" style="width: 60px;" value="Crear" >
-                            </div>
-                            <div style="float: left;width: 80px;">
-                                <input type="submit" style="width: 60px;" value="Limpiar">
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-
+        <a href="Controlador?accion=listarUsuarios">ListarUsuarios()</a>
+        
+        
             <div class="row2">
                 <h2>Tabla de usuarios</h2>
                 <div class="div_table">
                     <table border="1" style="width: 750px">
                         <tr>
-                            <th>ID</th>
-                            <th>NOMBRE</th>
-                            <th>APELLIDO</th>
-                            <th>EMAIL</th>
-                            <th>TELEFONO</th>
-                            <th>DNI</th>
-                            <th>ACCIONES</th>
+                            <th>id</th>
+                            <th>nombre</th>
+                            <th>apellido</th>
+                            <th>email</th>
+                            <th>telefono</th>
+                            <th>rut</th>
+                            <th>acciones</th>
                         </tr>
                         <c:forEach var="listadoPersonas" items="${listadoPersonas}">
                             <tr>
@@ -101,6 +54,4 @@
 
         </div>
     </body>
-
-    <jsp:include page="/footer.jsp"/> 
 </html>
