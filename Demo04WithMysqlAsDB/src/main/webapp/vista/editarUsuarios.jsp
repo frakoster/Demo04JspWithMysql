@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="main">
-
+            <a href="${pageContext.request.contextPath}/index.jsp">index</a>
             <a href="Controlador?accion=listarUsuarios">ListarUsuarios()</a>
 
             <div class="row1">

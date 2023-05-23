@@ -17,10 +17,8 @@
 
     </header>
     <body>
-        <a href="Controlador?accion=listarUsuarios">ListarUsuarios()</a>
-        
-        
-            <div class="row2">
+        <a href="${pageContext.request.contextPath}/index.jsp">index</a>
+         <div class="row2">
                 <h2>Tabla de usuarios</h2>
                 <div class="div_table">
                     <table border="1" style="width: 750px">

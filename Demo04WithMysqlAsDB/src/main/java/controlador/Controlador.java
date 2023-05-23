@@ -151,6 +151,7 @@ public class Controlador extends HttpServlet {
                 break;
             case "crearUsuario":
                 System.out.println("accion=" + accion);
+                
                 String nombre = request.getParameter("nombre");
                 String apellido = request.getParameter("apellido");
                 String email = request.getParameter("email");

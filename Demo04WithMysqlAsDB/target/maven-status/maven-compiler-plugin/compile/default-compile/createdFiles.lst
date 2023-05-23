@@ -1,7 +1,11 @@
+batch\ProductoDao.class
+batch\testProducto.class
 modelo\Persona.class
 modelo\PersonaDao.class
 modelo\UsuarioDao.class
+batch\ControladorProducto.class
 config\Conexion.class
 test\TestConnectionClass.class
+batch\Producto.class
 controlador\Controlador.class
 modelo\Usuario.class
