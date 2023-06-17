@@ -20,7 +20,7 @@ public class testProducto {
             Producto producto = new Producto( "silla", "silla de escritorio", "L100");
             productos.add(producto);
             }
-             pdao.creaLote(productos);
+         
             
             
             

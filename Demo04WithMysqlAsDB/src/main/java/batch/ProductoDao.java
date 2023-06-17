@@ -70,6 +70,38 @@ public class ProductoDao {
         return p;
     }
 
+     public Producto getProductoById(int idProducto) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Producto p = null;
+        conn = Conexion.getConnection();
+        try {
+            ps = conn.prepareStatement("SELECT * FROM app_main_producto WHERE id_producto=?");
+            ps.setInt(1, idProducto);
+            
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id_producto");
+                String nombre = rs.getString("nombre_producto");
+                String descripcion = rs.getString("detalle_producto");
+                int precioBase = rs.getInt("precio_base");
+                String lote = rs.getString("lote");
+                
+                p = new Producto(id, nombre, descripcion, lote, precioBase);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+            Conexion.close(conn);
+        }
+      
+        return p;
+    }
+    
+    
     public int borrarProductoPorId(int idProducto) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -117,5 +149,39 @@ public class ProductoDao {
         }
         return listado;
     }
+    
+       public  List<Producto> getAllProductosFromMain() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Producto> listado = new ArrayList<>();
+
+        conn = Conexion.getConnection();
+        try {
+            ps = conn.prepareStatement("SELECT * FROM app_main_producto");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                
+                int idProducto = rs.getInt("id_producto");
+                String nombre = rs.getString("nombre_producto");
+                String descripcion = rs.getString("detalle_producto");
+                int precio = rs.getInt("precio_base");
+               
+                
+                Producto producto = new Producto(idProducto, nombre, descripcion,"",precio);
+                
+                listado.add(producto);
+            }
+        } catch (SQLException ex) {
+           
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+            Conexion.close(conn);
+        }
+        return listado;
+    }
+    
+    
 
 }

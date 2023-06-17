@@ -18,6 +18,7 @@
             <li><a href="${pageContext.request.contextPath}/Controlador?accion=listarUsuarios">ListarUsuarios()</a></li>
             <li><a href="${pageContext.request.contextPath}/vista/crearUsuario.jsp">CrearNuevoUsuario()</a></li>
             <li><a href="productos/dashProductos.jsp">Productos</a></li>
+            <li><a href="${pageContext.request.contextPath}/ControladorProducto?accion=venta">Ventas</a></li>
         </ul>
             
             

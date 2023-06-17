@@ -13,11 +13,12 @@
     </head>
     <body>
         <h1>Dashboard de productos</h1>
-        <ol>
+        <ul>
+            <li><a href="${pageContext.request.contextPath}/index.jsp">index</li></a>
             <li><a href="crear_producto.jsp">crear producto</li></a>
             <li><a href="eliminar_producto.jsp">eliminar producto</a></li>
             <li><a href="${pageContext.request.contextPath}/ControladorProducto?accion=listarProductos">listar productos</a></li>
             
-        </ol>
+        </ul>
     </body>
 </html>

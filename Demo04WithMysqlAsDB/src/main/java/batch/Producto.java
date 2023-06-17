@@ -13,6 +13,15 @@ public class Producto {
     String nombre;
     String descripcion;
     String lote;
+    int precio;
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
     public Producto() {
     }
@@ -28,6 +37,14 @@ public class Producto {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.lote = lote;
+    }
+
+    public Producto(int idProducto, String nombre, String descripcion, String lote, int precio) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.lote = lote;
+        this.precio = precio;
     }
 
     public int getIdProducto() {
